@@ -6,7 +6,7 @@ An example can be found here https://www.nib.com.au/health-insurance/itsworthit
 ## Installation
 
 ```bash
-npm install --save @nib-health-funds/react-price-ticker
+npm install --save @nib/react-price-ticker
 ```
 
 ## Usage
