@@ -1,5 +1,5 @@
 {
-  "name": "@nib-health-funds/react-price-ticker",
+  "name": "@nib/react-price-ticker",
   "version": "0.1.0",
   "description": "React price ticker component, auto increment price every 200ms",
   "main": "./dist/index.js",
