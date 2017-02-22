@@ -1,0 +1,56 @@
+{
+  "name": "@nib-health-funds/react-price-ticker",
+  "version": "0.1.0",
+  "description": "React price ticker component, auto increment price every 200ms",
+  "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nib-health-funds/react-price-ticker.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-plugin-transform-class-properties": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.5.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "chai": "^3.5.0",
+    "cpx": "^1.3.2",
+    "del-cli": "^0.2.0",
+    "eslint": "^3.16.0",
+    "eslint-config-jameslnewell": "^2.0.0-preview.6",
+    "husky": "^0.11.4",
+    "mocha": "^2.4.5",
+    "react": "^15.4.0",
+    "react-addons-test-utils": "^15.4.0",
+    "react-dom": "^15.4.0",
+    "react-testutils-query": "^0.10.0",
+    "react-testutils-render": "^0.1.2",
+    "source-map-support": "^0.4.0",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "browserify-incremental": "^3.0.1"
+  },
+  "peerDependencies": {
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify"
+      ]
+    ]
+  },
+  "scripts": {
+    "clean": "del-cli -f dist",
+    "lint": "eslint ./src --ext .js,.jsx",
+    "build:scripts": "babel ./src --source-maps --out-dir ./dist",
+    "watch:scripts": "npm run build -- --watch",
+    "build:styles": "cpx ./src/*.scss ./dist",
+    "example.js.build": "browserify -v --debug -t babelify example/index.js -o example/index.bundled.js",
+    "build": "npm run build:scripts",
+    "test": "mocha --compilers js:babel-register --require ./dist/_.test.js ./dist",
+    "precommit": "npm run clean && npm run lint && npm run build && npm run test",
+    "prepublish": "npm run precommit"
+  }
+}
